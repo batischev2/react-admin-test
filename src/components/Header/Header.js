@@ -1,7 +1,7 @@
 import React from "react";
 
-import NavigationItem from "../../pages/NavigationItem/NavigationItem";
-import SocialItem from "../../pages/SocialItem/SocialItem";
+import NavigationItem from "../NavigationItem/NavigationItem";
+import SocialItem from "../SocialItem/SocialItem";
 
 import instagram from "../../assets/images/socials/instagram.png";
 import whatsapp from "../../assets/images/socials/whatsapp.png";
@@ -13,21 +13,21 @@ import "./header.scss";
 const Header = () => {
     const navigationItems = ["Аукционы", "Поставщики", "Одобрение заявок"]
     const socials = [
-        {
-          name: "faceBook",
-          img: faceBook,
-          href: "#"
-        },
-        {
-            name: "instagram",
-            img: instagram,
-            href: "#"
-        },
-        {
-            name: "whatsapp",
-            img: whatsapp,
-            href: "#"
-        },
+            {
+              name: "faceBook",
+              img: faceBook,
+              href: "#"
+            },
+            {
+                name: "instagram",
+                img: instagram,
+                href: "#"
+            },
+            {
+                name: "whatsapp",
+                img: whatsapp,
+                href: "#"
+            },
         ]
     return (
         <header className="header">
