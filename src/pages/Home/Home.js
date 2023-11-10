@@ -1,7 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 
 import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
 import FilterItem from "../../components/FilterItem/FilterItem";
+import ModalAddAuction from "../../components/ModalAddAuction/ModalAddAuction";
+import ModalEditAuction from "../../components/ModalEditAuction/ModalEditAuction";
 
 import loupe from "../../assets/images/loupe.png"
 import filterImg from "../../assets/images/filter.png"
@@ -14,36 +16,39 @@ import "./home.scss"
 const Home = () => {
     const filterItems = ["Товарная группа", "Статус аукциона", "Новая заявка", "Выбрать период"]
     const pagesMock = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    const auctionItems = [
+    const [auctionItems, setAuctionItems] = useState([
         {
-            number: 324,
+            number: 1,
             name: 'Аукцион на закупку в интересах компании ООО "Фабрика"',
             receptionDate: '17.04.23-18.04.23',
             startDate: '18.04.23',
             status: 'Черновик'
         },
         {
-            number: 323,
+            number: 2,
             name: 'Аукцион на закупку в интересах компании ООО "Пресс"',
             receptionDate: '17.04.23-18.04.23',
             startDate: '18.04.23',
             status: 'Сбор заявок'
         },
         {
-            number: 322,
+            number: 3,
             name: 'Аукцион на закупку в интересах компании ООО "Компания"',
             receptionDate: '17.04.23-18.04.23',
             startDate: '18.04.23',
             status: 'Идут торги'
         },
         {
-            number: 321,
+            number: 4,
             name: 'Аукцион на закупку в интересах компании ООО "Кот"',
             receptionDate: '17.04.23-18.04.23',
             startDate: '18.04.23',
             status: 'В архиве'
         },
-    ]
+    ])
+    const [openAddModal, setOpenAddModal] = useState(false)
+    const [openEditModal, setOpenEditModal] = useState(false)
+    const [currentEditAuction, setCurrentEditAuction] = useState(null)
     return (
         <div className="home">
             <BreadCrumbs links={[
@@ -52,7 +57,7 @@ const Home = () => {
             <h2 className="home__title">Аукционы</h2>
             <div className="home__info">
                 <div className="info__top">
-                    <button>
+                    <button onClick={() => setOpenAddModal(true)}>
                         + Добавить аукцион
                     </button>
                     <div className="info__search">
@@ -93,7 +98,10 @@ const Home = () => {
                                   <td className="center">{item.startDate}</td>
                                   <td className="center">{item.status}</td>
                                   <td className="tableItem__edit">
-                                      <img src={edit} alt="edit" />
+                                      <img src={edit} alt="edit" onClick={() => {
+                                          setCurrentEditAuction(item)
+                                          setOpenEditModal(true)
+                                      }}/>
                                   </td>
                               </tr>
                             })}
@@ -102,7 +110,7 @@ const Home = () => {
                     <div className="table__pages">
                         <img className="prev" src={arrow} alt="arrow" />
                         {pagesMock.slice(0, 5).map((item) => {
-                            return <p className={item === 1 ? "active" : ""}>{item}</p>
+                            return <p className={item === 1 ? "active" : ""} key={item}>{item}</p>
                         })}
                         {pagesMock.length > 5 &&
                             <>
@@ -114,6 +122,15 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+            <ModalAddAuction active={openAddModal} close={setOpenAddModal} setAuctionItems={setAuctionItems} />
+            {currentEditAuction &&
+                <ModalEditAuction
+                    active={openEditModal}
+                    close={setOpenEditModal}
+                    currentAuction={currentEditAuction}
+                    setAuctionItems={setAuctionItems}
+                />
+            }
         </div>
     );
 };
