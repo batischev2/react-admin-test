@@ -2,8 +2,7 @@ import React, {useState} from "react";
 
 import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
 import FilterItem from "../../components/FilterItem/FilterItem";
-import ModalAddAuction from "../../components/ModalAddAuction/ModalAddAuction";
-import ModalEditAuction from "../../components/ModalEditAuction/ModalEditAuction";
+import Modal from "../../components/Modal/Modal";
 
 import loupe from "../../assets/images/loupe.png"
 import filterImg from "../../assets/images/filter.png"
@@ -122,9 +121,17 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <ModalAddAuction active={openAddModal} close={setOpenAddModal} setAuctionItems={setAuctionItems} />
+            {openAddModal &&
+                <Modal
+                    type='add'
+                    active={openAddModal}
+                    close={setOpenAddModal}
+                    setAuctionItems={setAuctionItems}
+                />
+            }
             {currentEditAuction &&
-                <ModalEditAuction
+                <Modal
+                    type='edit'
                     active={openEditModal}
                     close={setOpenEditModal}
                     currentAuction={currentEditAuction}

@@ -14,7 +14,7 @@
     overflow: auto;
 
     &::-webkit-scrollbar-thumb {
-      background: #333333;
+      background: #0255ff;
       border-radius: 5px;
     }
 
@@ -32,7 +32,7 @@
         min-width: 1213px;
 
         button {
-          background-color: #b6b6b6;
+          background-color: #00529d;
           color: white;
           cursor: pointer;
           padding: 10px 20px;
@@ -65,7 +65,7 @@
       &__filters {
         display: flex;
         padding: 10px 15px;
-        background-color: #e6e6e6;
+        background-color: #2f95f2;
         align-items: center;
         justify-content: space-between;
         min-width: 1213px;
@@ -103,11 +103,11 @@
 
         .filter {
           &__reset {
-            background-color: darkgrey;
+            background-color: #0668c2;
           }
 
           &__confirm {
-            background-color: gray;
+            background-color: #00529d;
           }
         }
       }
