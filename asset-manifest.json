@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/react-admin-test/static/css/main.436f83cd.css",
-    "main.js": "/react-admin-test/static/js/main.155c1e8c.js",
+    "main.css": "/react-admin-test/static/css/main.9ba135dc.css",
+    "main.js": "/react-admin-test/static/js/main.030cbb0c.js",
     "static/js/787.6acf47e0.chunk.js": "/react-admin-test/static/js/787.6acf47e0.chunk.js",
     "static/media/loupe.png": "/react-admin-test/static/media/loupe.c6544d3156a8bde3d076.png",
     "static/media/instagram.png": "/react-admin-test/static/media/instagram.edb90ecc706a7a25542b.png",
     "static/media/whatsapp.png": "/react-admin-test/static/media/whatsapp.fdd4b7007148bcf6ce48.png",
     "index.html": "/react-admin-test/index.html",
-    "static/media/select.svg": "/react-admin-test/static/media/select.5846bd935ac29ba8b9a4233fe8db012b.svg",
-    "main.436f83cd.css.map": "/react-admin-test/static/css/main.436f83cd.css.map",
-    "main.155c1e8c.js.map": "/react-admin-test/static/js/main.155c1e8c.js.map",
+    "static/media/select.svg": "/react-admin-test/static/media/select.e47cdde3bb3392a74ce4ccdeafdc7a0d.svg",
+    "main.9ba135dc.css.map": "/react-admin-test/static/css/main.9ba135dc.css.map",
+    "main.030cbb0c.js.map": "/react-admin-test/static/js/main.030cbb0c.js.map",
     "787.6acf47e0.chunk.js.map": "/react-admin-test/static/js/787.6acf47e0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.436f83cd.css",
-    "static/js/main.155c1e8c.js"
+    "static/css/main.9ba135dc.css",
+    "static/js/main.030cbb0c.js"
   ]
 }
