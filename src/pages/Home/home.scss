@@ -1,6 +1,6 @@
 .home {
   width: 100%;
-  padding-bottom: 100px;
+  padding: 15px 0 100px;
   &__title {
     font-size: 40px;
   }
@@ -30,15 +30,6 @@
         display: flex;
         justify-content: space-between;
         min-width: 1213px;
-
-        button {
-          background-color: #00529d;
-          color: white;
-          cursor: pointer;
-          padding: 10px 20px;
-          border-radius: 8px;
-          border: none;
-        }
       }
 
       &__search {
@@ -81,15 +72,12 @@
         }
 
         button {
-          outline: none;
           display: flex;
           align-items: center;
-          color: white;
           font-size: 17px;
-          padding: 7px 10px;
-          border-radius: 5px;
           max-width: 200px;
           border: none;
+          color: white;
           width: 100%;
           cursor: pointer;
           column-gap: 8px;
@@ -144,6 +132,7 @@
           display: flex;
           flex-direction: column;
           row-gap: 10px;
+          margin-bottom: 15px;
 
           thead {
             display: grid;
@@ -161,41 +150,6 @@
             tr {
               display: grid;
               grid-template-columns: 7% 50% 16% 12% 10% 5%;
-            }
-          }
-        }
-
-        .table {
-          &__pages {
-            display: flex;
-            margin-top: 15px;
-            column-gap: 8px;
-            align-items: center;
-            margin-bottom: 15px;
-
-            p {
-              cursor: pointer;
-              border-radius: 5px;
-              font-weight: 600;
-            }
-
-            .active {
-              color: white;
-              padding: 3px 7px;
-              background-color: #1d3bff;
-            }
-
-            img {
-              width: 20px;
-              height: 20px;
-              cursor: pointer;
-            }
-            .prev {
-              transform: rotate(90deg);
-            }
-
-            .next {
-              transform: rotate(-90deg);
             }
           }
         }

@@ -1,19 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
-
-import "./breadCrumbs.scss";
+import Breadcrumb from 'react-bootstrap/Breadcrumb';
 
 const BreadCrumbs = ({links}) => {
     return (
-        <div className="breadcrumbs">
+        <Breadcrumb>
             {links.map((link, index) => {
-                return (
-                    <Link key={index} to={link.link}>
-                        {link.name}
-                    </Link>
-                );
+              return (
+                  <Breadcrumb.Item active key={index}>
+                      {link.name}
+                  </Breadcrumb.Item>
+              )
             })}
-        </div>
+        </Breadcrumb>
     );
 };
 

@@ -1,20 +1,22 @@
 import React, {useState} from "react";
 
 import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
-import FilterItem from "../../components/FilterItem/FilterItem";
-import Modal from "../../components/Modal/Modal";
+import DropDownFilter from "../../components/DropDownFilter/DropDownFilter";
+import Modals from "../../components/Modals/Modals";
+
+import Pagination from 'react-bootstrap/Pagination';
+
+import Button from 'react-bootstrap/Button';
 
 import loupe from "../../assets/images/loupe.png"
 import filterImg from "../../assets/images/filter.png"
 import cross from "../../assets/images/close.png"
 import edit from "../../assets/images/edit.png"
-import arrow from "../../assets/images/select.svg"
 
 import "./home.scss"
 
 const Home = () => {
     const filterItems = ["Товарная группа", "Статус аукциона", "Новая заявка", "Выбрать период"]
-    const pagesMock = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     const [auctionItems, setAuctionItems] = useState([
         {
             number: 1,
@@ -51,14 +53,14 @@ const Home = () => {
     return (
         <div className="home">
             <BreadCrumbs links={[
-                { name: "Главная", link: "/" },
+                { name: "Главная", link: "/" }
             ]} />
             <h2 className="home__title">Аукционы</h2>
             <div className="home__info">
                 <div className="info__top">
-                    <button onClick={() => setOpenAddModal(true)}>
+                    <Button variant="primary" onClick={() => setOpenAddModal(true)}>
                         + Добавить аукцион
-                    </button>
+                    </Button>
                     <div className="info__search">
                         <input placeholder="Найти аукцион" type="text" />
                         <img src={loupe} alt='loupe' />
@@ -67,15 +69,15 @@ const Home = () => {
                 <div className="info__filters">
                     <img className="info__filtersImg" src={filterImg} alt="filter" />
                     <div className="info__filters__items">
-                        {filterItems.map((item) => {
-                          return <FilterItem title={item} key={item} />
+                        {filterItems.map((item, index) => {
+                            return <DropDownFilter key={index} title={item} />
                         })}
                     </div>
-                    <button className="filter__reset">
+                    <Button variant="primary">
                         <img src={cross} alt="cross" />
                         Сбросить фильтры
-                    </button>
-                    <button className="filter__confirm">Применить</button>
+                    </Button>
+                    <Button variant="info">Применить</Button>
                 </div>
                 <div className="info__tableWrapper">
                     <table>
@@ -106,34 +108,35 @@ const Home = () => {
                             })}
                         </tbody>
                     </table>
-                    <div className="table__pages">
-                        <img className="prev" src={arrow} alt="arrow" />
-                        {pagesMock.slice(0, 5).map((item) => {
-                            return <p className={item === 1 ? "active" : ""} key={item}>{item}</p>
-                        })}
-                        {pagesMock.length > 5 &&
-                            <>
-                                <span>...</span>
-                                <p>{pagesMock.length}</p>
-                            </>
-                        }
-                        <img className="next" src={arrow} alt="arrow" />
-                    </div>
+                    <Pagination>
+                        <Pagination.First />
+                        <Pagination.Item>{1}</Pagination.Item>
+                        <Pagination.Ellipsis />
+
+                        <Pagination.Item>{10}</Pagination.Item>
+                        <Pagination.Item>{11}</Pagination.Item>
+                        <Pagination.Item active>{12}</Pagination.Item>
+                        <Pagination.Item>{13}</Pagination.Item>
+
+                        <Pagination.Ellipsis />
+                        <Pagination.Item>{20}</Pagination.Item>
+                        <Pagination.Last />
+                    </Pagination>
                 </div>
             </div>
             {openAddModal &&
-                <Modal
+                <Modals
                     type='add'
-                    active={openAddModal}
-                    close={setOpenAddModal}
+                    show={openAddModal}
+                    onHide={() => setOpenAddModal(false)}
                     setAuctionItems={setAuctionItems}
                 />
             }
             {currentEditAuction &&
-                <Modal
+                <Modals
                     type='edit'
-                    active={openEditModal}
-                    close={setOpenEditModal}
+                    show={openEditModal}
+                    onHide={() => setOpenEditModal(false)}
                     currentAuction={currentEditAuction}
                     setAuctionItems={setAuctionItems}
                 />

@@ -1,5 +1,7 @@
 import React from "react";
 
+import Button from 'react-bootstrap/Button';
+
 import "./footer.scss";
 
 const Footer = () => {
@@ -13,7 +15,9 @@ const Footer = () => {
                             заявку на консультацию
                         </p>
                         <span>прикрепить файл</span>
-                        <button>Получить консультацию</button>
+                        <Button variant="primary">
+                            Получить консультацию
+                        </Button>
                     </div>
                     <div className="footer__infoBottom">
                         <p>OOO "Издательский дом "Проф-Пресс", 2023</p>
