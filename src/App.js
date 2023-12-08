@@ -1,5 +1,6 @@
 import Header from "./components/Header/Header";
 import Home from "./pages/Home/Home";
+import Auth from "./pages/Auth/Auth"
 import Footer from "./components/Footer/Footer";
 
 import {
@@ -19,7 +20,7 @@ function App() {
             <Router>
                 <Routes>
                     <Route exact path="/" element={<Home />} />
-                    <Route exact path="/auth" element={<div>123</div>} />
+                    <Route exact path="/auth" element={<Auth />} />
                     <Route path="*" element={<Navigate to="/" replace />} />
                 </Routes>
             </Router>
