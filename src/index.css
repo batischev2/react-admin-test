@@ -39,14 +39,5 @@ table {
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-.container {
-  display: flex;
-  align-items: center;
-  max-width: 1310px;
-  padding: 0 15px;
-  margin: 0 auto;
-  height: 100%;
+  monospace;
 }

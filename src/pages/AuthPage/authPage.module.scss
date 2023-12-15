@@ -1,0 +1,22 @@
+.auth {
+  padding: 100px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  &__title {
+    font-size: 30px;
+    font-weight: 700;
+    max-width: 700px;
+    text-align: center;
+  }
+
+  &__form {
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    width: 100%;
+    max-width: 400px;
+  }
+}
